@@ -31,14 +31,25 @@ import torch
 # data = pd.read_csv(datafile)
 # print(data)
 
-from plotutils import use_svg_display, set_figsize, set_axes, plot
-import numpy as np
-import matplotlib.pyplot as plt
+# from plotutils import use_svg_display, set_figsize, set_axes, plot
+# import numpy as np
+# import matplotlib.pyplot as plt
 
-def f(x):
-    return 3*x**2 - 4*x
+# def f(x):
+#     return 3*x**2 - 4*x
 
-x = np.arange(0, 3, 0.1)
-plot(x, [f(x), 2*x-3], 'x', 'f(x)', legend=['f(x)', 'Tangent line (x=1)'])
-plt.show()
+# x = np.arange(0, 3, 0.1)
+# plot(x, [f(x), 2*x-3], 'x', 'f(x)', legend=['f(x)', 'Tangent line (x=1)'])
+# plt.show()
+
+x = torch.arange(4.0, requires_grad=True)
+y = 2 * torch.dot(x, x)
+y.backward()
+print(x.grad)
+print(x.grad == 4 * x)
+
+x.grad.zero_()
+y = x.sum()
+y.backward()
+print(x.grad)
 
