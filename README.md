@@ -1,21 +1,59 @@
+---
+typora-copy-images-to: assets
+---
+
 # learnDL
 虽然之前已经接触过了一些深度学习的东西，但光有理论，动手实践太少，决定跟着《动手学深度学习：Pytorch版》再动手把代码敲一遍，以此仓库作为记录
 
 - [x] 第二章主要是一些张量的操作、线性代数、概率论、微积分的一些预备知识
   - [x] 很重要的一点就是梯度和反向传播
-  - [x] 在前向传播的时候可以设置require_grad=True来保存计算图，以便反向传播的时候计算各个参数的梯度，计算出梯度之后使用SGD、Adam等优化算法对参数进行更新
+  - [x] 在前向传播的时候可以设置`require_grad=True`来保存计算图，以便反向传播的时候计算各个参数的梯度，计算出梯度之后使用SGD、Adam等优化算法对参数进行更新
+  
 - [x] 第三章介绍了线性神经网络，包括最简单的线性回归以及Softmax回归
   - [x] 线性回归，常采用均方误差MSELoss作为损失函数
   - [x] Softmax回归处理分类问题，使用交叉熵损失作为损失函数
+  
 - [x] 第四章介绍了多层感知机，通过引入激活函数引入了非线性因素，还讨论了过拟合、欠拟合及其解决方法，最后还有一个kaggle房价预测的实战
   - [x] 模型复杂度较高（参数较多或者参数取值范围较大）但是数据集小，或者特征数量多而数据集小，容易导致**过拟合**，可以理解为背答案
   - [x] **权重衰减**作为最广泛的正则化技术之一，可以缓解过拟合，权重衰减的核心是在损失函数上面加上权重的L2范数（或者其他），使L2范数尽可能小来降低模型复杂度，进而避免过拟合
   - [x] **暂退法**是以p的概率丢弃隐藏层单元，只需要在每个全连接层之后添加一个暂退层，可以提高模型的平滑性（函数不应该对其输入的微小变化敏感），进而缓解过拟合
+  
 - [x] 第五章名为深度学习计算，引入了层和块的概念，还介绍了参数管理的细节，以及读写文件
-  - [x] 从编程的角度来看，**块**由类表示，自定义的块通过继承nn.Module类来实现，在类中需要设置前向传播函数forward，在构造函数中需要定义参数的初始化
+  - [x] 从编程的角度来看，**块**由类表示，自定义的块通过继承`nn.Module`类来实现，在类中需要设置前向传播函数`forward`，在构造函数中需要定义参数的初始化
   - [x] 在参数管理中，可以通过索引访问任意层并查看该层的参数||一次性访问所有参数||从嵌套块中收集参数，参数的初始化可以采用框架提供的初始化方式也可以自定义
   - [x] 加载和保存模型参数的文件读写操作通过`torch.save`和`torch.load`来实现
-- [x] 第六章介绍了卷积神经网络，主要讲了卷积运算、填充、步幅、多通道、池化/汇聚层、LeNet
+  
+- [x] 第六章介绍了卷积神经网络，主要讲了卷积运算、填充、步幅、多通道、池化/汇聚层、`LeNet`
   - [x] 采用卷积是为了满足平移不变性和局部性
   - [x] 池化层/汇聚层 Pooling，起到汇聚、聚拢信息的作用：降低卷积层对位置的敏感性；降低对空间降采样表示的敏感性
   - [x] 最早的卷积神经网络之一 `LeNet`
+  
+- [x] 第七章介绍了现代卷积神经网络，按照时间发展的顺序进行介绍
+
+  - [x] `AlexNet`：比`LeNet`更深，是一种深度卷积神经网络
+
+    <img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627121005162.png" alt="image-20250627121005162" style="zoom:40%;" />
+
+  - [x] `VGG`：使用许多重复的神经网络块的网络，通过构建块来便于构建网络时的复用
+
+    <img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120933751.png" alt="image-20250627120933751" style="zoom:40%;" />
+
+  - [x] `NiN`：网络中的网络——在每个像素的通道上分别使用多层感知机，从而防止丢失空间结构的信息，主要是采用1x1卷积来实现，其取消了使用全连接层，转而使用一个`nin`块来替代
+
+    <img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120841935.png" alt="image-20250627120841935" style="zoom:40%;" />
+
+  - [x] `GoogLeNet`：含并行连接的网络，其基本的卷积块称为`Inception`块，块中包含四条并行的路径
+
+    <img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120740831.png" alt="image-20250627120740831" style="zoom:50%;" /><img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120757140.png" alt="image-20250627120757140" style="zoom:50%;" />
+
+  - [x] 批量规范化：可持续加速深层网络的收敛
+
+    - [x] 原理：每次训练迭代中，首先规范化输入——减去其均值并除以其标准差（基于当前的小批量处理）；接下来应用比例系数和比例偏移
+
+  - [x] `ResNet`：残差网络，其跳跃连接机制让网络学“变化量”而不是“全部”，因此更容易训练更深、效果更好，这就好像网络不用学“从 0 到目标”，而是只学“和输入相比改了多少”
+
+    <img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120635941.png" alt="image-20250627120635941" style="zoom:50%;" /><img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120703628.png" alt="image-20250627120703628" style="zoom:50%;" />
+
+  - [x] `DenseNet`：稠密连接网络，主要由两部分组成：稠密块、过渡层  稠密块定义如何连接输入和输出，过渡层控制通道数，使其不会太复杂
+
+    <img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120525496.png" alt="image-20250627120525496" style="zoom:50%;" /><img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120545299.png" alt="image-20250627120545299" style="zoom:50%;" />
