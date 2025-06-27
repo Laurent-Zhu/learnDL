@@ -1,5 +1,6 @@
 ---
 typora-copy-images-to: assets
+
 ---
 
 # learnDL
@@ -32,19 +33,19 @@ typora-copy-images-to: assets
 
   - [x] `AlexNet`：比`LeNet`更深，是一种深度卷积神经网络
 
-    <img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627121005162.png" alt="image-20250627121005162" style="zoom:40%;" />
+    <img src="assets/image-20250627121005162.png" alt="image-20250627121005162" style="zoom:40%;" />
 
   - [x] `VGG`：使用许多重复的神经网络块的网络，通过构建块来便于构建网络时的复用
 
-    <img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120933751.png" alt="image-20250627120933751" style="zoom:40%;" />
+    <img src="assets/image-20250627120933751.png" alt="image-20250627120933751" style="zoom:40%;" />
 
   - [x] `NiN`：网络中的网络——在每个像素的通道上分别使用多层感知机，从而防止丢失空间结构的信息，主要是采用1x1卷积来实现，其取消了使用全连接层，转而使用一个`nin`块来替代
 
-    <img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120841935.png" alt="image-20250627120841935" style="zoom:40%;" />
+    <img src="assets/image-20250627120841935.png" alt="image-20250627120841935" style="zoom:40%;" />
 
   - [x] `GoogLeNet`：含并行连接的网络，其基本的卷积块称为`Inception`块，块中包含四条并行的路径
 
-    <img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120740831.png" alt="image-20250627120740831" style="zoom:50%;" /><img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120757140.png" alt="image-20250627120757140" style="zoom:50%;" />
+    <img src="assets/image-20250627120740831.png" alt="image-20250627120740831" style="zoom:50%;" /><img src="assets/image-20250627120757140.png" alt="image-20250627120757140" style="zoom:50%;" />
 
   - [x] 批量规范化：可持续加速深层网络的收敛
 
@@ -52,8 +53,8 @@ typora-copy-images-to: assets
 
   - [x] `ResNet`：残差网络，其跳跃连接机制让网络学“变化量”而不是“全部”，因此更容易训练更深、效果更好，这就好像网络不用学“从 0 到目标”，而是只学“和输入相比改了多少”
 
-    <img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120635941.png" alt="image-20250627120635941" style="zoom:50%;" /><img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120703628.png" alt="image-20250627120703628" style="zoom:50%;" />
+    <img src="assets/image-20250627120635941.png" alt="image-20250627120635941" style="zoom:50%;" /><img src="assets/image-20250627120703628.png" alt="image-20250627120703628" style="zoom:50%;" />
 
   - [x] `DenseNet`：稠密连接网络，主要由两部分组成：稠密块、过渡层  稠密块定义如何连接输入和输出，过渡层控制通道数，使其不会太复杂
 
-    <img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120525496.png" alt="image-20250627120525496" style="zoom:50%;" /><img src="/home/laurentzhu/PycharmProjects/learnDL/assets/image-20250627120545299.png" alt="image-20250627120545299" style="zoom:50%;" />
+    <img src="assets/image-20250627120525496.png" alt="image-20250627120525496" style="zoom:50%;" /><img src="assets/image-20250627120545299.png" alt="image-20250627120545299" style="zoom:50%;" />
