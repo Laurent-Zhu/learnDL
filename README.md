@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: assets
+---
+
 
 typora-copy-images-to: assets
 
@@ -96,19 +100,19 @@ typora-copy-images-to: assets
   - [x] 长短期记忆网络`LSTM`
     - [x] 引入**记忆元**，设置有**输入门**、**输出门**、**遗忘门**，同样有助于缓解梯度消失、梯度爆炸的问题，有利于获取序列中的**长距离依赖关系**
     - [x] 公式
-      - [x] <img src="../../.config/Typora/typora-user-images/image-20250714170840605.png" alt="image-20250714170840605" style="zoom:48%;" />
-      - [x] <img src="../../.config/Typora/typora-user-images/image-20250714170902237.png" alt="image-20250714170902237" style="zoom:48%;" />
-      - [x] <img src="../../.config/Typora/typora-user-images/image-20250714170921782.png" alt="image-20250714170921782" style="zoom:48%;" />
-    - [x] <img src="../../.config/Typora/typora-user-images/image-20250714171055690.png" alt="image-20250714171055690" style="zoom:50%;" />
+      - [x] <img src="assets/image-20250714170840605.png" alt="image-20250714170840605" style="zoom:48%;" />
+      - [x] <img src="assets/image-20250714170902237.png" alt="image-20250714170902237" style="zoom:48%;" />
+      - [x] <img src="assets/image-20250714170921782.png" alt="image-20250714170921782" style="zoom:48%;" />
+    - [x] <img src="assets/image-20250714171055690.png" alt="image-20250714171055690" style="zoom:50%;" />
   - [x] 深度`RNN`
     - [x] 与单层的循环神经网络相比，deepRNN具有多个隐藏层，隐状态的信息被传递到当前层的下一时间步和下一层的当前时间步
     - [x] 结构图
-      - [x] <img src="../../.config/Typora/typora-user-images/image-20250714171251000.png" alt="image-20250714171251000" style="zoom:67%;" />
+      - [x] <img src="assets/image-20250714171251000.png" alt="image-20250714171251000" style="zoom:67%;" />
   - [x] 编码器-解码器架构
     - [x] 编码器将长度可变的序列作为输入，并将其转换为具有固定形状的编码状态。
     - [x] 解码器将具有固定形状的编码状态映射为长度可变的序列。
     - [x] 结构图
-      - [x] <img src="../../.config/Typora/typora-user-images/image-20250714171432593.png" alt="image-20250714171432593" style="zoom:50%;" />
+      - [x] <img src="assets/image-20250714171432593.png" alt="image-20250714171432593" style="zoom:50%;" />
   - [x] 序列到序列学习`seq2seq`
     - [x] 以机器翻译为例子
     - [x] 根据“编码器-解码器”架构的设计， 我们可以使用两个==循环神经网络==来设计一个序列到序列学习的模型。
